@@ -1,0 +1,12 @@
+use_frameworks!
+
+target 'Macros_Example' do
+  pod 'Macros', :path => '../'
+
+  target 'Macros_Tests' do
+    inherit! :search_paths
+
+    pod 'Kiwi'
+  pod 'FBSnapshotTestCase'
+  end
+end
