@@ -26,7 +26,6 @@
     pet.name = @"wangcai";
     pet.age = 4;
     person.pet = pet;
-//    NSLog(@"%d", person.age);
     [self archive:person];
 }
 
