@@ -9,7 +9,7 @@
 #define Codable_h
 
 /**
- *  宏定义实现NSCoding协议
+ *  Implementation NSCoding
  */
 #undef IMP_CODING
 #define IMP_CODING \

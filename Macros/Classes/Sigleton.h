@@ -10,14 +10,13 @@
 
 
 
-// 宏定义实现单例设计模式
+// SIGLETON
 
-// .h文件的实现
 #define DEF_SIGLETON(methodName) + (instancetype)shared##methodName;
 
 
-// .m文件的实现
-#if __has_feature(objc_arc) // 是ARC
+// IMP
+#if __has_feature(objc_arc) // ARC
 #define IMP_SIGLETON(methodName) \
 static id _instace = nil; \
 + (id)allocWithZone:(struct _NSZone *)zone \
@@ -54,7 +53,7 @@ return _instace; \
 return _instace; \
 }
 
-#else // 不是ARC
+#else // MARC
 
 #define IMP_SIGLETON(methodName) \
 static id _instace = nil; \
