@@ -12,4 +12,7 @@
 @implementation OMPet
 IMP_SIGLETON()
 IMP_CODING
++ (BOOL)supportsSecureCoding {
+    return YES;
+}
 @end

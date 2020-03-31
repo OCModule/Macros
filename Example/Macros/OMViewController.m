@@ -30,8 +30,17 @@
 }
 
 - (void)archive:(NSObject<NSCoding> *)object {
-    NSData *data = [NSKeyedArchiver archivedDataWithRootObject:object];
-    [[NSUserDefaults standardUserDefaults]  setObject:data forKey:@"test"];
+    NSError *error = nil;
+    NSData *data = nil;
+    if (@available(iOS 11.0, *)) {
+        data = [NSKeyedArchiver archivedDataWithRootObject:object    requiringSecureCoding:YES error:&error];
+        if (!error) {
+            [[NSUserDefaults standardUserDefaults]  setObject:data forKey:@"test"];
+        }
+    } else {
+        data = [NSKeyedArchiver archivedDataWithRootObject:object];
+        [[NSUserDefaults standardUserDefaults]  setObject:data forKey:@"test"];
+    }
 }
 
 - (void)touchesBegan:(NSSet<UITouch *> *)touches withEvent:(UIEvent *)event {

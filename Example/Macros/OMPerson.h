@@ -9,9 +9,8 @@
 #import <Foundation/Foundation.h>
 #import <Macros/Macros.h>
 #import "OMPet.h"
-#import "NSObject+AGCoding.h"
 
-@interface OMPerson : NSObject
+@interface OMPerson : NSObject<NSCoding, NSSecureCoding>
 DEF_SIGLETON()
     @property(nonatomic, strong) NSString *name;
     @property(nonatomic, assign) NSInteger age;
