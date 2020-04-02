@@ -13,6 +13,15 @@
  */
 #undef IMP_CODING
 #define IMP_CODING \
+\
+- (void)setNilValueForKey:(NSString *)key {}\
+\
+- (void)setValue:(id)value forUndefinedKey:(NSString *)key {}\
+\
+- (id)valueForUndefinedKey:(NSString *)key {\
+    return nil;\
+}\
+\
 - (void)encodeWithCoder:(NSCoder *)encoder{\
 unsigned int outCount = 0;\
 Ivar *ivars = class_copyIvarList([self class], &outCount);\
