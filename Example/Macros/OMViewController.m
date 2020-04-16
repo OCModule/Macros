@@ -8,6 +8,7 @@
 
 #import "OMViewController.h"
 #import "OMPerson.h"
+#import <objc/runtime.h>
 
 @interface OMViewController ()
 
@@ -54,5 +55,65 @@
     [super didReceiveMemoryWarning];
     // Dispose of any resources that can be recreated.
 }
+
+
+//- (void)encodeWithCoder:(NSCoder *)encoder{
+//    [super encodeWithCoder:encoder];
+//    unsigned int outCount = 0;
+//    Ivar *ivars = class_copyIvarList([self class], &outCount);
+//
+//    for (int i = 0; i < outCount; i ++) {
+//
+//        Ivar ivar = ivars[i];
+//
+//        const char *name = ivar_getName(ivar);
+//
+//        NSString *key = [NSString stringWithUTF8String:name];
+//        
+//        if (!key) {
+//            continue;
+//        }
+//        id value = [self valueForKey:key];
+//        
+//        if (!value) {
+//            continue;
+//        }
+//        
+//        [encoder encodeObject:value forKey:key];
+//    }
+//    free(ivars);
+//}
+//
+//- (instancetype)initWithCoder:(NSCoder *)decoder {
+//
+//    if (self = [super initWithCoder:decoder]) {
+//
+//        unsigned int outCount = 0;
+//        Ivar *ivars = class_copyIvarList([self class], &outCount);
+//        for (int i = 0; i < outCount; i ++) {
+//
+//            Ivar ivar = ivars[i];
+//
+//            const char *name = ivar_getName(ivar);
+//
+//            NSString *key = [NSString stringWithUTF8String:name];
+//
+//            if (!key) {
+//                continue;
+//            }
+//            
+//            id value = [decoder decodeObjectForKey:key];
+//            
+//            if (!value) {
+//                continue;
+//            }
+//
+//            [self setValue:value forKey:key];
+//
+//        }
+//        free(ivars);
+//    }
+//    return self;
+//}
 
 @end
